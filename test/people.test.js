@@ -16,5 +16,18 @@ describe('Routes', () => {
         });
       });
   });
+
+  it('can get an item by index', () => {
+    return request(app)
+      .get('/api/v1/people/0')
+      .then(res => {
+        expect(res.body).toEqual({
+          name: 'danny',
+          lastname: 'suarez',
+          age: 28,
+          gender: 'm'
+        });
+      });
+  });
 });
 
